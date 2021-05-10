@@ -1,0 +1,24 @@
+// Code your testbench here
+// or browse Examples
+module test;
+  reg [12:0] freq[7:0];
+  reg [12:0] in [7:0];
+  wire [0:7] pin [15:0];
+  
+  pinmap uut(freq,in,pin);
+  
+  initial begin
+    #5 freq[0]=256; in[0]=76;
+       freq[1]=1000; in[1]=65;
+       freq[2]=2900; in[2]=83;
+    #5 for(int i=0;i<16;i=i+1) 
+      $display(i," %b",pin[i]);  
+    #5 freq[0]=700; in[0]=60;
+       freq[1]=1900; in[1]=62;
+       freq[2]=2300; in[2]=91;
+    #5 for(int i=0;i<16;i=i+1) 
+      $display(i," %b",pin[i]);  
+         
+  end
+  
+endmodule
